@@ -1,0 +1,44 @@
+/* --- Definición del Color --- */
+:root {
+  /* Este es el verde oliva */
+  --color-marca-verde: #7c9c3c; 
+}
+
+/* --- Estilo para el Navbar --- */
+.navbar-brand {
+  color: #fff !important;
+  font-family: 'Georgia', serif; 
+  font-size: 1.8rem;
+}
+
+/* --- Estilo para las Tarjetas de Producto (Dark Card) --- */
+.pizza-card {
+  background-color: #1a1a1a !important; /* Un gris muy oscuro, no negro puro */
+  border-radius: 15px !important;
+  overflow: hidden;
+}
+
+/* --- Estilo para el Badge de Precio --- */
+.precio-badge {
+  background-color: var(--color-marca-verde);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* --- Estilo para el Botón --- */
+.btn-marca {
+  background-color: var(--color-marca-verde) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-marca:hover {
+  background-color: #6a8632 !important; /* Más oscuro al pasar el mouse */
+}
