@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // Recibimos cart y setCart desde las props de App.js
 const ProductList = ({ cart, setCart }) => {
+    const navigate = useNavigate();
     const [productos, setProductos] = useState([]);
-    const [selectedProduct, setSelectedProduct] = useState(null);
 
     useEffect(() => {
         const fetchProductos = async () => {
             try {
-                const res = await axios.get('http://localhost:5001/api/productos');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/productos`);
                 setProductos(res.data);
             } catch (err) {
                 console.error("Error al traer productos", err);
@@ -39,9 +40,7 @@ const ProductList = ({ cart, setCart }) => {
                                 className="card-img-top" 
                                 alt={p.nombre}
                                 style={{ height: '240px', objectFit: 'cover', cursor: 'pointer' }}
-                                onClick={() => setSelectedProduct(p)}
-                                data-bs-toggle="modal"
-                                data-bs-target="#detalleModal"
+                                onClick={() => navigate(`/producto/${p._id}`)}
                             />
                             <div className="card-body text-center">
                                 <h5 className="text-light fw-bold">{p.nombre}</h5>
@@ -57,24 +56,6 @@ const ProductList = ({ cart, setCart }) => {
                         </div>
                     </div>
                 ))}
-            </div>
-
-            {/* MODAL DE DETALLE */}
-            <div className="modal fade" id="detalleModal" tabIndex="-1" aria-hidden="true" style={{zIndex: 1055}}>
-                <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content bg-dark text-light border-secondary">
-                        <div className="modal-header border-secondary">
-                            <h5 className="modal-title">{selectedProduct?.nombre}</h5>
-                            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div className="modal-body text-center">
-                            <img src={`/${selectedProduct?.imagenUrl || selectedProduct?.imagen}`} className="img-fluid rounded mb-3" alt="" />
-                            <p><span className="badge bg-marca">{selectedProduct?.categoria}</span></p>
-                            <p className="text-white">{selectedProduct?.descripcion}</p>
-                            <h3 className="text-success">${selectedProduct?.precio}</h3>
-                        </div>
-                    </div>
-                </div>
             </div>
         </>
     );

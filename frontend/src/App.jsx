@@ -5,7 +5,8 @@ import ProductList from './components/ProductList';
 import CartPage from './components/CartPage';
 import Register from './components/Register'; 
 import Contact from './components/Contact'; 
-import Footer from './components/Footer';   
+import Footer from './components/Footer';
+import DetalleProducto from './components/DetalleProducto';   
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             {/* Enviamos cart y setCart EXACTAMENTE como los pide ProductList */}
             <Route path="/" element={<ProductList cart={cart} setCart={setCart} />} />
             <Route path="/productos" element={<ProductList cart={cart} setCart={setCart} />} />
+            <Route path="/producto/:id" element={<DetalleProducto cart={cart} setCart={setCart} />} />
             <Route path="/carrito" element={<CartPage cart={cart} setCart={setCart} />} />
             <Route path="/registro" element={<Register />} /> 
             <Route path="/contacto" element={<Contact />} />
