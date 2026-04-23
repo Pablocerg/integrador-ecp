@@ -9,7 +9,7 @@ const Contact = () => {
                     
                     <div className="card pizza-card shadow-lg p-4">
                         <h2 className="text-center text-light fw-bold mb-4" style={{ fontFamily: 'Georgia, serif' }}>
-                            📍 Contacto
+                            Contacto
                         </h2>
 
                         

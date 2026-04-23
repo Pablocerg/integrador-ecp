@@ -5,7 +5,8 @@
 **TPI_TIENDA** es una aplicación web de tienda online para una pizzería, 
 desarrollada con el stack MERN (MongoDB, Express, React, Node.js). 
 Esta primera entrega implementa la estructura inicial del backend, 
-una interfaz básica de frontend para visualización de productos y la documentación técnica del sistema.
+una interfaz básica de frontend para visualización de productos 
+y la documentación técnica del sistema.
 
 ---
 
@@ -24,7 +25,7 @@ una interfaz básica de frontend para visualización de productos y la documenta
 
 
  |**RF01**  Catálogo Dinámico --- Visualización de productos desde MongoDB Atlas con nombre, imagen y precio |
- |**RF02**  Detalle del Producto --- Modal con descripción, categoría, precio y stock |
+ |**RF02**  Detalle del Producto --- DetalleProducto con descripción, categoría, precio y stock |
  |**RF03**  Registro de Usuarios --- Formulario de alta de clientes con validación |
  |**RF04**  Control de Stock --- Botón de compra deshabilitado cuando stock es 0 |
  |**RF05**  Gestión de Inventario --- Backend con validación para evitar stock negativo |
@@ -52,7 +53,7 @@ una interfaz básica de frontend para visualización de productos y la documenta
 │              React.js + Bootstrap 5                     │
 │              - Catálogo de productos                    │
 │              - Registro de usuarios                     │
-│              - Carrito de compras                       │
+│              - Carrito de compra                       │
 └────────────────────┬────────────────────────────────────┘
                      │ HTTP
                      │
@@ -63,7 +64,7 @@ una interfaz básica de frontend para visualización de productos y la documenta
 │           RUTAS → CONTROLADORES → MODELOS               │
 │               - /api/productos                          │
 │               - /api/usuarios                           │
-│               - /api/carritos                           │
+│               - /api/carrito                           │
 └────────────────────┬────────────────────────────────────┘
                      │ MongoDB 
                      │
@@ -95,15 +96,12 @@ una interfaz básica de frontend para visualización de productos y la documenta
 
 ### 2. Usuario
 ```javascript
-{
-  nombre: String,
-  email: String,
-  telefono: String,
-  direccion: String,
-  ciudad: String,
-  codigoPostal: String,
-  fechaRegistro: Date (default: now)
-}
+const userSchema = new mongoose.Schema({
+    nombre: { type: String, required: true },
+    apellido: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    telefono: { type: String }
+}, { timestamps: true });
 ```
 
 ### 3. Carrito
@@ -142,8 +140,8 @@ una interfaz básica de frontend para visualización de productos y la documenta
 
 ### Carrito
 
-| **POST** | `/api/carritos` | Crear carrito |
-| **POST** | `/api/carritos/add` | Agregar producto al carrito |
+| **POST** | `/api/carrito` | Crear carrito |
+| **POST** | `/api/carrito/add` | Agregar producto al carrito |
 
 ---
 
@@ -191,30 +189,30 @@ una interfaz básica de frontend para visualización de productos y la documenta
 - **Body** (raw JSON):
 ```json
 {
-  "nombre": "Pizza Pepperoni",
-  "descripcion": "Pizza con pepperoni y queso",
-  "precio": 15.99,
-  "categoria": "Pizzas",
-  "imagen": "pizza-pepperoni.jpg",
-  "stock": 20
+  "nombre": "Papas Fritas Provenzal",
+  "descripcion": "Papas rústicas cortadas a mano, doble cocción, con abundante ajo, perejil fresco y sal marina.",
+  "precio": 8.5,
+  "categoria": "Acompañamientos",
+  "imagenUrl": "papas-provenzal.jpg",
+  "stock": 30
 }
 ```
 
 #### 4. Editar Producto
 - **Método**: PUT
-- **URL**: `http://localhost:5001/api/productos/{id}`
+- **URL**: `http://localhost:5001/api/productos/{id}`("Papas Fritas Provenzal")
 - **Headers**: Content-Type: application/json
 - **Body** (raw JSON):
 ```json
 {
-  "precio": 16.99,
-  "stock": 18
+  "precio": 8500,
+  "stock": 4
 }
 ```
 
 #### 5. Baja Lógica de Producto
 - **Método**: DELETE
-- **URL**: `http://localhost:5001/api/productos/{id}`
+- **URL**: `http://localhost:5001/api/productos/{id}`("Papas Fritas Provenzal")
 - **Descripción**: Marca el producto como inactivo (activo: false)
 
 ### Endpoints de Usuarios
@@ -226,12 +224,10 @@ una interfaz básica de frontend para visualización de productos y la documenta
 - **Body** (raw JSON):
 ```json
 {
-  "nombre": "Juan Pérez",
-  "email": "juan.perez@email.com",
-  "telefono": "+54911234567",
-  "direccion": "Av. Corrientes 1234",
-  "ciudad": "Buenos Aires",
-  "codigoPostal": "1000"
+  "nombre": "Florencia",
+  "apellido": "Alvarez",
+  "email": "Florencia.Alvarez@email.com",
+  "telefono": "+54911234567"
 }
 ```
 
@@ -239,25 +235,26 @@ una interfaz básica de frontend para visualización de productos y la documenta
 
 #### 1. Crear Carrito
 - **Método**: POST
-- **URL**: `http://localhost:5001/api/carritos`
+- **URL**: `http://localhost:5001/api/carrito`
 - **Headers**: Content-Type: application/json
 - **Body** (raw JSON):
 ```json
 {
-  "usuarioId": "60d5ecb74bbcc72b8c8b4568"
+  "usuarioId": "69e914b1778d3feda27047ab"
 }
 ```
 
 #### 2. Agregar Producto al Carrito
 - **Método**: POST
-- **URL**: `http://localhost:5001/api/carritos/add`
+- **URL**: `http://localhost:5001/api/carrito/add`
 - **Headers**: Content-Type: application/json
 - **Body** (raw JSON):
 ```json
 {
-  "usuarioId": "60d5ecb74bbcc72b8c8b4568",
-  "productoId": "60d5ecb74bbcc72b8c8b4567",
-  "cantidad": 2
+  "usuarioId": "69e914b1778d3feda27047ab",
+  "productoId": "69c89e56e1ef798c37acd88d",
+  "cantidad": 3
+
 }
 ```
 
@@ -267,7 +264,7 @@ una interfaz básica de frontend para visualización de productos y la documenta
 
 1. **Crear productos** (POST /api/productos)
 2. **Registrar usuario** (POST /api/usuarios)
-3. **Crear carrito** (POST /api/carritos)
+3. **Crear carrito** (POST /api/carrito)
 4. **Agregar productos al carrito** (POST /api/carritos/add)
 5. **Listar productos** (GET /api/productos)
 6. **Editar producto** (PUT /api/productos/{id})
@@ -350,7 +347,7 @@ npm install
 
 # Crear archivo .env con las variables:
 # PORT=5001
-# MONGO_URI=tu_cadena_de_conexion_mongodb_atlas
+# MONGO_URI=dummy
 
 # Iniciar el servidor
 npm start
@@ -379,7 +376,7 @@ Crear archivo `.env` en la carpeta `backend`:
 
 ```
 PORT=5001
-MONGO_URI=mongodb+srv://usuario:contraseña@cluster.mongodb.net/tienda?retryWrites=true&w=majority
+MONGO_URI=dummy
 ```
 
 ---
@@ -396,18 +393,16 @@ MONGO_URI=mongodb+srv://usuario:contraseña@cluster.mongodb.net/tienda?retryWrit
 - **G. Crear Carrito** - Creación de carrito
 - **H. Agregar Pizza al Carrito** - Operación de carrito
 
-Ver carpeta `/evidencias/postman/` para capturas detalladas.
+
 
 ### Base de Datos MongoDB
 - Colecciones creadas: productos, usuarios, carritos
 - Documentos de ejemplo insertados
 - Validaciones implementadas
 
-Ver carpeta `/evidencias/mongodb/` para capturas de colecciones.
 
 ### Diagramas de Arquitectura
-Consultar carpeta `/diagramas/` con:
-- Analogía de restaurante
+
 - Arquitectura front-back-db
 - Diagrama de capas
 - Diagrama de 3 capas
@@ -450,7 +445,7 @@ Consultar carpeta `/diagramas/` con:
 
 ### Carrito de Compras
 1. Usuario selecciona producto
-2. Frontend envía POST a `/api/carritos/add`
+2. Frontend envía POST a `/api/carrito/add`
 3. Backend valida stock y agrega a carrito
 4. Frontend actualiza visualización del carrito
 
