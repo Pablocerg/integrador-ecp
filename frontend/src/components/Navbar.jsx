@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Importante para la navegación sin recargar
-
+import logo from '../assets/kone-logo-tight.jpeg'; // Asegúrate de que la ruta sea correcta
 const Navbar = ({ cartCount }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
       <div className="container">
-        {/* Usamos Link en lugar de <a> para que React no recargue la página */}
-        <Link className="navbar-brand fw-bold" to="/">PIZZERÍA Kone</Link>
-        
+       
+        <div className="flex items-center gap-4">
+                <Link title="Inicio" to="/">
+                    <img 
+                        src={logo}
+                        alt="Logo Kone" 
+                        style={{ width: '120px', height: 'auto' }} // Ajusta los '120px' a tu gusto
+                        className="img-fluid" 
+                    />
+                </Link>
+            </div>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>

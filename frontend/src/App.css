@@ -42,3 +42,16 @@
 .btn-marca:hover {
   background-color: #6a8632 !important; /* Más oscuro al pasar el mouse */
 }
+
+/* Color verde oliva de la imagen */
+.subtitulo-especial {
+  color: #6d7a2d; 
+  letter-spacing: 0.3em; /* Esto es el 'tracking' que querías */
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Opcional: Si quieres una fuente con más estilo que la que trae Bootstrap por defecto */
+.display-4 {
+  font-family: 'Georgia', serif; /* La fuente Georgia imita bien el estilo elegante */
+}

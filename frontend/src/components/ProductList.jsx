@@ -26,9 +26,11 @@ const ProductList = ({ cart, setCart }) => {
 
     return (
         <>
-            <div className="text-center mb-5">
-                <p className="text-muted text-uppercase mb-1 small">Nuestras Recomendaciones</p>
-                <h2 className="text-light fw-bold" style={{ fontFamily: 'Georgia, serif' }}>Especialidades de la Casa</h2>
+            <div className="text-center my-5">
+            {/* Usamos clases de Bootstrap y nuestra clase personalizada 'subtitulo-especial' */}
+            <h6 className="text-uppercase subtitulo-especial mb-2">Nuestras Recomendaciones</h6>
+            {/* Usamos 'display-4' para un tamaño grande y 'fst-italic' para la cursiva */}
+            <h2 className="display-4 fw-bold fst-italic text-white">Especialidades de la Casa   </h2>
             </div>
             
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
