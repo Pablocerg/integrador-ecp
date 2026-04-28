@@ -350,7 +350,7 @@ npm install
 # MONGO_URI=dummy
 
 # Iniciar el servidor
-npm start
+node src/server.js
 ```
 
 **El servidor estará disponible en:** `http://localhost:5001`
@@ -457,9 +457,9 @@ MONGO_URI=dummy
 | Nombre | Rol | GitHub |
 |--------|-----|--------|
 | Fernando Leguizamón | Desarrollo Full Stack | [GitHub](https://github.com) |
-| Integrante 2 | Desarrollo Full Stack | [GitHub](https://github.com) |
-| Integrante 3 | Desarrollo Full Stack | [GitHub](https://github.com) |
-| Integrante 4 | Desarrollo Full Stack | [GitHub](https://github.com) |
+| Cergneux Pablo | Desarrollo Full Stack | [GitHub](https://github.com) |
+| Lemes Daniela | Desarrollo Full Stack | [GitHub](https://github.com) |
+| Vinzon Marcelo | Desarrollo Full Stack | [GitHub](https://github.com) |
 
 ---
 
@@ -483,8 +483,8 @@ MONGO_URI=dummy
 ## Contacto y Soporte
 
 Para consultas sobre el proyecto:
-1. Revisar la documentación en `/diagramas/`
-2. Consultar ejemplos en `/evidencias/`
+1. Revisar la documentación en Documentación Técnica: E-Commerce Pizzería
+2. Consultar ejemplos en Documentación Técnica: E-Commerce Pizzería
 3. Contactar al delegado del grupo
 
 ---
