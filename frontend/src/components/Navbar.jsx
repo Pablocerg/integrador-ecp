@@ -34,7 +34,7 @@ const Navbar = ({ cartCount }) => {
             <li className="nav-item">
               <Link className="nav-link position-relative" to="/carrito">
               {/* Esta es la línea que dibuja el carrito */}
-              <i className="bi bi-cart fs-4"></i> 
+              <i className="bi bi-cart fs-4">🛒</i> 
               <span className="badge bg-success rounded-pill position-absolute top-0 start-100 translate-middle">
                 {cartCount}
               </span>
