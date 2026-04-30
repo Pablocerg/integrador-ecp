@@ -53,7 +53,7 @@ y la documentación técnica del sistema.
 │              React.js + Bootstrap 5                     │
 │              - Catálogo de productos                    │
 │              - Registro de usuarios                     │
-│              - Carrito de compra                       │
+│              - Carrito de compra                        │
 └────────────────────┬────────────────────────────────────┘
                      │ HTTP
                      │
@@ -64,7 +64,7 @@ y la documentación técnica del sistema.
 │           RUTAS → CONTROLADORES → MODELOS               │
 │               - /api/productos                          │
 │               - /api/usuarios                           │
-│               - /api/carrito                           │
+│               - /api/carrito                            │
 └────────────────────┬────────────────────────────────────┘
                      │ MongoDB 
                      │

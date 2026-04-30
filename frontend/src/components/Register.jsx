@@ -16,7 +16,7 @@ const Register = () => {// Hook para navegar programáticamente después del reg
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {// Evita que el formulario se envíe de forma tradicional
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const res = await axios.post('http://localhost:5001/api/usuarios', formData);

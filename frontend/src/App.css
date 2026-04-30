@@ -1,24 +1,24 @@
 /* --- Definición del Color --- */
 :root {
-  /* Este es el verde oliva */
+
   --color-marca-verde: #7c9c3c; 
 }
 
-/* --- Estilo para el Navbar --- */
+
 .navbar-brand {
   color: #fff !important;
   font-family: 'Georgia', serif; 
   font-size: 1.8rem;
 }
 
-/* --- Estilo para las Tarjetas de Producto (Dark Card) --- */
+
 .pizza-card {
   background-color: #1a1a1a !important; /* Un gris muy oscuro, no negro puro */
   border-radius: 15px !important;
   overflow: hidden;
 }
 
-/* --- Estilo para el Badge de Precio --- */
+
 .precio-badge {
   background-color: var(--color-marca-verde);
   color: #fff;
@@ -28,7 +28,7 @@
   font-size: 0.9rem;
 }
 
-/* --- Estilo para el Botón --- */
+
 .btn-marca {
   background-color: var(--color-marca-verde) !important;
   color: #fff !important;
@@ -40,18 +40,18 @@
 }
 
 .btn-marca:hover {
-  background-color: #6a8632 !important; /* Más oscuro al pasar el mouse */
+  background-color: #6a8632 !important; 
 }
 
-/* Color verde oliva de la imagen */
+
 .subtitulo-especial {
   color: #6d7a2d; 
-  letter-spacing: 0.3em; /* Esto es el 'tracking' que querías */
+  letter-spacing: 0.3em; 
   font-size: 0.8rem;
   font-weight: 600;
 }
 
-/* Opcional: Si quieres una fuente con más estilo que la que trae Bootstrap por defecto */
+
 .display-4 {
-  font-family: 'Georgia', serif; /* La fuente Georgia imita bien el estilo elegante */
+  font-family: 'Georgia', serif; 
 }

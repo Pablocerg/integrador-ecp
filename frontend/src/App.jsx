@@ -19,7 +19,7 @@ function App() {
         
         <main className="container py-5 flex-grow-1">
           <Routes>
-            {/* Enviamos cart y setCart EXACTAMENTE como los pide ProductList */}
+          
             <Route path="/" element={<ProductList cart={cart} setCart={setCart} />} />
             <Route path="/productos" element={<ProductList cart={cart} setCart={setCart} />} />
             <Route path="/producto/:id" element={<DetalleProducto cart={cart} setCart={setCart} />} />
