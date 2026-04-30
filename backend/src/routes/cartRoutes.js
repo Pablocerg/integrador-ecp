@@ -1,4 +1,4 @@
-const express = require('express');// Importa Express para crear el router
+const express = require('express');
 const router = express.Router();
 const cartController = require('../controllers/cartController');
 

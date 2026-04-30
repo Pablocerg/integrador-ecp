@@ -1,6 +1,6 @@
 const Product = require('../models/Product');
 
-// 1. Obtener todos los productos (Solo los activos)
+// ● Obtener todos los productos (Solo los activos)
 exports.obtenerProductos = async (req, res) => {
     try {
         const productos = await Product.find({ activo: true });
@@ -10,12 +10,12 @@ exports.obtenerProductos = async (req, res) => {
     }
 };
 
-// 2. Obtener un producto por ID
+// ● Obtener un producto por ID
 exports.obtenerProductoPorId = async (req, res) => {
     try {
         const producto = await Product.findById(req.params.id);
         if (!producto || !producto.activo) {// Verifica si el producto existe y está activo
-            return res.status(404).json({ mensaje: "Producto no encontrado o inactivo" });// Respuesta para producto no encontrado o inactivo
+            return res.status(404).json({ mensaje: "Producto no encontrado o inactivo" });
         }
         res.json(producto);
     } catch (error) {
@@ -23,7 +23,7 @@ exports.obtenerProductoPorId = async (req, res) => {
     }
 };
 
-// 3. Crear producto
+// ● Crear producto
 exports.crearProducto = async (req, res) => {
     try {
         const nuevoProducto = new Product(req.body);
@@ -34,7 +34,7 @@ exports.crearProducto = async (req, res) => {
     }
 };
 
-// 4. Editar producto
+// ● Editar producto
 exports.editarProducto = async (req, res) => {
     try {
         const productoActualizado = await Product.findByIdAndUpdate(
@@ -48,7 +48,7 @@ exports.editarProducto = async (req, res) => {
     }
 };
 
-// 5. Baja lógica (Cambia 'activo' a false)
+// ● Baja lógica (Cambia /activo/ a false)
 exports.bajaLogicaProducto = async (req, res) => {
     try {
         const productoInactivado = await Product.findByIdAndUpdate(

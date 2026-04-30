@@ -19,11 +19,11 @@ exports.agregarProducto = async (req, res) => {
         
         if (!carrito) return res.status(404).json({ mensaje: "Carrito no encontrado" });
 
-        // Agregamos el producto al array
+       
         carrito.productos.push({ productoId, cantidad });
         await carrito.save();
 
-        // Devolvemos el carrito actualizado con los datos del producto
+        
         const carritoActualizado = await Cart.findById(cartId).populate('productos.productoId');
         res.json(carritoActualizado);
     } catch (error) {

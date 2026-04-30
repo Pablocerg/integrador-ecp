@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');// Importa mongoose para definir el esquema y modelo de datos
+const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
     nombre: { type: String, required: true },

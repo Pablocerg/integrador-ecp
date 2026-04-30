@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// Recibimos cart y setCart desde las props de App.js
+
 const ProductList = ({ cart, setCart }) => {
     const navigate = useNavigate();
     const [productos, setProductos] = useState([]);
@@ -20,16 +20,16 @@ const ProductList = ({ cart, setCart }) => {
     }, []);
 
     const agregarAlCarrito = (producto) => {
-        // Ahora setCart sí será una función válida
+    
         setCart([...cart, producto]); 
     };
 
     return (
         <>
             <div className="text-center my-5">
-            {/* Usamos clases de Bootstrap y nuestra clase personalizada 'subtitulo-especial' */}
+            
             <h6 className="text-uppercase subtitulo-especial mb-2">Nuestras Recomendaciones</h6>
-            {/* Usamos 'display-4' para un tamaño grande y 'fst-italic' para la cursiva */}
+        
             <h2 className="display-4 fw-bold fst-italic text-white">Especialidades de la Casa   </h2>
             </div>
             

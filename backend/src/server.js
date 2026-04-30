@@ -19,13 +19,13 @@ app.use('/api/productos', require('./routes/productRoutes'));
 app.use('/api/usuarios', require('./routes/userRoutes'));
 app.use('/api/carrito', require('./routes/cartRoutes'));
 
-// Ruta para actualizar stock con VALIDACIÓN DE SEGURIDAD
+
 app.put('/api/productos/stock/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const { cantidad } = req.body;
 
-        // Solo actualiza si el stock actual es mayor o igual a la cantidad que se quiere restar
+        
         const productoActualizado = await Product.findOneAndUpdate(
             { _id: id, stock: { $gte: cantidad } }, 
             { $inc: { stock: -cantidad } }, 

@@ -38,7 +38,7 @@ const Contact = () => {
                                     required
                                 ></textarea>
                             </div>
-                          
+
                             <button type="submit" className="btn btn-marca w-100 py-3 fw-bold">
                                 ENVIAR CONSULTA
                             </button>

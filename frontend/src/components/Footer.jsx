@@ -6,6 +6,7 @@ const Footer = () => {
       <div className="container">
         <p>© 2026 Pizzería Kone - TPI Programación IV</p>
         <p>Concepción del Uruguay, Entre Ríos</p>
+        <p>(Primera Entrega)</p>
       </div>
     </footer>
   );
