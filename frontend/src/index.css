@@ -1,13 +1,42 @@
+@import "tailwindcss";
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  color: black;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  scroll-behavior: smooth;
+}
+
+#menu, #nosotros, #inicio {
+  scroll-margin-top: 80px; 
+}
+
+
+.vapor {
+  display: flex;
+  gap: 15px;
+}
+
+.vapor span {
+  position: relative;
+  display: block;
+  margin: 0 2px;
+  min-width: 8px; 
+  height: 120px;
+  background: rgba(255, 255, 255, 0.8); 
+  border-radius: 50%;
+  animation: animateVapor 5s linear infinite;
+  opacity: 0;
+  filter: blur(8px); 
+  animation-delay: calc(var(--i) * -0.5s);
+}
+
+@keyframes animateVapor {
+  0% { transform: translateY(0) scale(1.5); opacity: 0; }
+  15% { opacity: 0.4; } 
+  50% { transform: translateY(-150px) scale(3); opacity: 0.2; }
+  100% { transform: translateY(-300px) scale(6); opacity: 0; }
 }
